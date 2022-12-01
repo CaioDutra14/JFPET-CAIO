@@ -15,7 +15,6 @@ Nesse projeto foi implementado:
 * Cadastro
 * Tela de Serviços
 * Tela de Carrinho
-* Tela de Pagamento
 
 ## 🛠️ Ferramenta para código:
 
