@@ -13,19 +13,25 @@ export default function CartProvider ({ children }) {
       id: 1,
       nome: 'Banho',
       preco: 80,
-      descricao: 'Traga seu PET para tomar um banho digno de um rei!',
+      descricao: 'Traga seu pet para tomar um banho digno de um rei!',
     },
     {
       id: 2,
       nome: 'Vacina V4',
       preco: 100,
-      descricao: 'Uma dose da vacina V4. Seu PET precisa de duas.',
+      descricao: 'Uma dose da vacina V4. Seu pet precisa de duas.',
     },
     {
       id: 3,
       nome: 'Vacina Antirrábica',
       preco: 90,
-      descricao: 'Uma dose da vacina antirrábica. Seu PET precisa de uma por ano.',
+      descricao: 'Uma dose da vacina antirrábica. Seu pet precisa de uma por ano.',
+    },
+    {
+      id: 4,
+      nome: 'Vacina polivalente (V8 e V10)',
+      preco: 120,
+      descricao: 'Essa vacina imuniza o pet contra doenças de origem viral e bacteriana',
     }]
     
 
