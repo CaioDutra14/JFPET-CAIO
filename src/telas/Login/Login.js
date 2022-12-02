@@ -1,14 +1,13 @@
-import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, TextInput, Image, ScrollView, Alert } from 'react-native';
+import React from 'react';
+import { View, Text, TouchableOpacity, TextInput, Image, Alert } from 'react-native';
 import estilos from './estilos';
 import Icones from 'react-native-vector-icons/AntDesign';
-
 import { getAuth, signInWithEmailAndPassword  } from "firebase/auth";
+import { useCart } from '../../context/cart';
 
 export default function Login(props) {
-  const [mail, setMail] = useState('kaiodutrajf@gmail.com');
-  const [pass, setPass] = useState('123456789');
 
+  const { mail, pass, setMail, setPass } = useCart();
   const login = () => {
     const auth = getAuth();
     signInWithEmailAndPassword(auth, mail, pass)

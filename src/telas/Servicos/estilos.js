@@ -8,7 +8,7 @@ export default StyleSheet.create({
   nome: {
     color: cores.laranja,
     fontWeight: 'bold',
-    fontSize: 16,
+    fontSize: 25,
   },
   calculo: {
     color: cores.escuro,
@@ -17,7 +17,7 @@ export default StyleSheet.create({
   },
   preco: {
     color: cores.roxo,
-    fontSize: 16,
+    fontSize: 18,
     fontWeight: 'bold',
     textAlign: 'right',
   },
