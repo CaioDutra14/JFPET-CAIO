@@ -6,8 +6,8 @@ import Icones from 'react-native-vector-icons/AntDesign';
 import { getAuth, signInWithEmailAndPassword  } from "firebase/auth";
 
 export default function Login(props) {
-  const [mail, setMail] = useState('');
-  const [pass, setPass] = useState('');
+  const [mail, setMail] = useState('kaiodutrajf@gmail.com');
+  const [pass, setPass] = useState('123456789');
 
   const login = () => {
     const auth = getAuth();

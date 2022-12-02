@@ -1,37 +1,55 @@
-import React from 'react';
-import { FlatList } from 'react-native';
-import Item from './Item';
+import React, { useState, useContext, createContext } from 'react';
+import { View, Text, TouchableOpacity, TextInput, FlatList } from 'react-native';
+//import { MainContext, useMainContext } from "../../context/MainContext";
+import estilos from './estilos';
+import Botao from '../../componentes/Botao';
+import CampoInteiro from '../../componentes/CampoInteiro';
+import { useCart } from '../../context/cart';
 
-const servicos = [
-  {
-    id: 1,
-    nome: 'Banho',
-    preco: 80,
-    descricao: 'NÃO DE BANHO NO SEU PET! Mas se precisar nós damos.',
-  },
-  {
-    id: 2,
-    nome: 'Vacina V4',
-    preco: 100,
-    descricao: 'Uma dose da vacina V4. Seu PET precisa de duas.',
-  },
-  {
-    id: 3,
-    nome: 'Vacina Antirrábica',
-    preco: 90,
-    descricao:
-      'Uma dose da vacina antirrábica. Seu PET precisa de uma por ano.',
-  },
-];
+export default function Servicos() {
 
-export default function Servicos(props) {
+  const { servicos, cart, inverteExpandir, expandir, atualizaQuantidadeTotal, calculaTotal, navigateCarrinho, quantidade, atualizaListaCarrinho, add } = useCart();
+
+  //const { servicos, inverteExpandir, expandir, atualizaQuantidadeTotal, calculaTotal, navigateCarrinho, quantidade, atualizaListaCarrinho } = useMainContext();
+
   return (
-    <>
       <FlatList
         data={servicos}
-        renderItem={({ item }) => <Item {...item} props={props}/>}
-        keyExtractor={({ id }) => String(id)}
-      />
-    </>
+        renderItem={({item}) => {
+          return(
+            <View>
+              <Text style={estilos.nome}>{item.nome}</Text>
+              <Text style={estilos.preco}>{item.preco}</Text>
+              <Text style={estilos.descricao}>{item.descricao}</Text>
+            <View style={estilos.carrinho}>
+              <Botao valor="Adicionar ao Carrinho" acao={() => add(item)}/>
+            </View>
+            <View style={estilos.divisor} />
+            </View>
+          )
+        }}
+        keyExtractor={(item) => item.id}>
+      </FlatList>
   );
 }
+
+/*
+<View>
+        {servicos.map((item, index) => {
+          return (
+            <View key={item.id}>
+              <TouchableOpacity style={estilos.informacao} onPress={inverteExpandir}>
+              <Text style={estilos.nome}>{item.nome}</Text>
+              <Text style={estilos.preco}>{item.preco}</Text>
+              <Text style={estilos.descricao}>{item.descricao}</Text>
+            </TouchableOpacity>
+            <View style={estilos.carrinho}>
+              <Botao valor="Adicionar ao Carrinho" acao={atualizaListaCarrinho(item)}/>
+            </View>
+
+            <View style={estilos.divisor} />
+          </View>
+        )
+      })}
+    </View>*/
+

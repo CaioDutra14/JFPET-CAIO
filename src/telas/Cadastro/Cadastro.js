@@ -52,7 +52,7 @@ export default function Login(props) {
         </TouchableOpacity>
 
         <TouchableOpacity onPress={() => (props.navigation.navigate("Login"))}>
-          <Text style={estilos.font}>Fazer Login</Text>
+          <Text style={estilos.font}>Voltar para Login!</Text>
         </TouchableOpacity>
 
       </View>

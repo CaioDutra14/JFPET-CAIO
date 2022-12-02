@@ -7,8 +7,9 @@ import Login from './telas/Login/Login';
 import Cadastro from './telas/Cadastro/Cadastro';
 import Servicos from './telas/Servicos/Servicos';
 import Carrinho from './telas/Carrinho/Carrinho';
-import Pagamento from './telas/Pagamento/Pagamento';
 import Icones from 'react-native-vector-icons/Entypo';
+import { MainContextProvider } from "../src/context/MainContext";
+import CartProvider from "../src/context/cart";
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -48,14 +49,6 @@ function Root(props) {
       }}>
         {(props) => <Carrinho {...props} />}
       </Stack.Screen>
-      <Stack.Screen name='Pagamento'
-      options={{
-        tabBarIcon: ({}) => (
-          <Icones name='wallet' size={20} />
-        ),
-      }}>
-        {(props) => <Pagamento {...props} />}
-      </Stack.Screen>
     </Tab.Navigator>
   );
 }
@@ -63,6 +56,7 @@ function Root(props) {
 export default function App() {
   return (
     <NavigationContainer>
+      <CartProvider>
       <Stack.Navigator
         useLegacyImplementation
         initialRouteName="Login"
@@ -80,6 +74,7 @@ export default function App() {
           {(props) => <Root {...props} />}
         </Stack.Screen>
       </Stack.Navigator>
+      </CartProvider>
     </NavigationContainer>
   );
 }

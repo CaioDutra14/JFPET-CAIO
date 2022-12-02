@@ -1,41 +1,70 @@
-import React from 'react';
-//import { FlatList } from 'react-native';
+import React, { useContext, createContext } from 'react';
+import { View, Text, ScrollView, FlatList } from 'react-native';
 import StatusCarrinho from '../../componentes/StatusCarrinho';
-//import Item from './Item';
+//import { MainContext, useMainContext } from "../../context/MainContext";
+import estilos from '../Servicos/estilos';
+import { useCart } from '../../context/cart';
+import Botao from '../../componentes/Botao';
 
-/*const servicos = [
-  {
-    id: 1,
-    nome: 'Banho',
-    preco: 80,
-    descricao: 'NÃO DE BANHO NO SEU GATO! Mas se precisar nós damos.',
-    quantidade: 0,
-  },
-  {
-    id: 2,
-    nome: 'Vacina V4',
-    preco: 100,
-    descricao: 'Uma dose da vacina V4. Seu gato precisa de duas.',
-    quantidade: 0,
-  },
-  {
-    id: 3,
-    nome: 'Vacina Antirrábica',
-    preco: 90,
-    descricao:
-      'Uma dose da vacina antirrábica. Seu gato precisa de uma por ano.',
-    quantidade: 0,
-  },
-];*/
+export default function Carrinho() {
 
-export default function Carrinho(props) {
-
-  return(
+  const { cart, remove } = useCart();
+  return (
+    <View>
     <StatusCarrinho />
+    <FlatList
+      data={cart}
+      renderItem={({ index, item }) => {
+        return (
+          <View>
+            <Text style={estilos.nome}>{item.nome}</Text>
+            <Text style={estilos.preco}>{item.preco}</Text>
+            <Text style={estilos.descricao}>{item.descricao}</Text>
+            <View style={estilos.carrinho}>
+              <Botao valor="Remover do Carrinho" acao={() => remove(index)} />
+            </View>
+            <View style={estilos.divisor} />
+          </View>
+        )
+      }}
+      keyExtractor={(item) => item.id}>
+    </FlatList>
+    </View>
+
+
   )
+  //total={total} 
+  //data={servicos}
+  //renderItem={({ item }) => <Item {...item} />}
+  //keyExtractor={({ id }) => String(id)}
+
+
   /*const total = servicos.reduce(
     (soma, { preco, quantidade }) => soma + preco * quantidade,
     0
+
+
+
+      <View>
+      <StatusCarrinho/>
+      {(cart.length > 0) && cart.map((item) => {
+        return(
+          <View key={item.id}>
+            <Text style={estilos.nome}>{item.nome}</Text>
+            <Text style={estilos.preco}>{item.preco}</Text>
+            <Text style={estilos.descricao}>{item.descricao}</Text>
+            <View style={estilos.divisor} />
+          </View>
+        )
+      })}
+      
+    </View>
+
+
+
+
+
+
   );*/
 
   /*return (
