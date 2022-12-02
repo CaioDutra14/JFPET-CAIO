@@ -2,17 +2,17 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import Botao from '../Botao';
 import estilos from './estilos';
+import { useCart } from '../../context/cart';
 
-export default function StatusCarrinho({ total }) {
+export default function StatusCarrinho() {
 
-  
+  const { totalValue } = useCart()
+
   return <View style={estilos.conteudo}>
     <View style={estilos.total}>
       <Text style={estilos.descricao}>Total do Carrinho:</Text>
       <Text style={estilos.valor}>
-        {
-          total
-        }
+        R$ {totalValue}
       </Text>
     </View>
     <View style={estilos.botao}>

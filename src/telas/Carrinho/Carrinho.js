@@ -8,20 +8,21 @@ import Botao from '../../componentes/Botao';
 
 export default function Carrinho() {
 
+  //const total = servicos.reduce((soma, {preco, quantidade}) => soma + (preco * quantidade), 0);
   const { cart, remove } = useCart();
   return (
     <View>
-    <StatusCarrinho />
+    <StatusCarrinho/>
     <FlatList
       data={cart}
       renderItem={({ index, item }) => {
         return (
-          <View>
+          <View style = {estilos.informacao}>
             <Text style={estilos.nome}>{item.nome}</Text>
             <Text style={estilos.preco}>{item.preco}</Text>
             <Text style={estilos.descricao}>{item.descricao}</Text>
             <View style={estilos.carrinho}>
-              <Botao valor="Remover do Carrinho" acao={() => remove(index)} />
+              <Botao valor="Remover do Carrinho" acao={() => remove(index)}/>
             </View>
             <View style={estilos.divisor} />
           </View>

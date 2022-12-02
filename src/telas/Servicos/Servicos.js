@@ -17,7 +17,7 @@ export default function Servicos() {
         data={servicos}
         renderItem={({item}) => {
           return(
-            <View>
+            <View style = {estilos.informacao}>
               <Text style={estilos.nome}>{item.nome}</Text>
               <Text style={estilos.preco}>{item.preco}</Text>
               <Text style={estilos.descricao}>{item.descricao}</Text>

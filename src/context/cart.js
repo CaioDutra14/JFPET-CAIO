@@ -10,37 +10,42 @@ export default function CartProvider ({ children }) {
     const servicos = [{
       id: 1,
       nome: 'Banho',
-      preco: 80,
+      preco: "R$ " + 80,
       descricao: 'NÃO DE BANHO NO SEU PET! Mas se precisar nós damos.',
     },
     {
       id: 2,
       nome: 'Vacina V4',
-      preco: 100,
+      preco: "R$ " + 100,
       descricao: 'Uma dose da vacina V4. Seu PET precisa de duas.',
     },
     {
       id: 3,
       nome: 'Vacina Antirrábica',
-      preco: 90,
+      preco: "R$ " + 90,
       descricao: 'Uma dose da vacina antirrábica. Seu PET precisa de uma por ano.',
     },
     {
       id: 4,
       nome: 'Ração Pedigree Nutrição Essencial',
-      preco: 149,
+      preco: "R$ " + 149,
       descricao: 'Nutrição essencial sabor carne para cães adultos.',
     },
     {
       id: 5,
       nome: 'Ração Whiskas para Gatos',
-      preco: 169,
+      preco: "R$ " + 169,
       descricao: 'Ração premium 100% completa e balanceada.',
     },]
     
 
     useEffect(() => {
-        console.log(cart)
+        let value = 0
+        cart.map((item) => {
+          value = value * item.preco
+        })
+
+        setTotalValue(value)
     }, [cart])
 
     function add (item) {
