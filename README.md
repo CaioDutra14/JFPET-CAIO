@@ -2,6 +2,8 @@
 
 Este é um projeto em React Native e Firebase feito para a diciplina de Desenvolvimento Móvel / UniAcademia.
 
+https://github.com/CaioDutra14/JFPET-CAIO/issues/1#issue-1473494563
+
 ## ✒️ Autores
 
 Mencione todos aqueles que ajudaram a levantar o projeto desde o seu início
